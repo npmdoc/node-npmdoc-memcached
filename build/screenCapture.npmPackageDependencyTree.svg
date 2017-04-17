@@ -1,11 +1,14 @@
-<svg height="126" width="720" xmlns="http://www.w3.org/2000/svg">
-<rect height="126" fill="#555" width="720"></rect>
+<svg height="174" width="720" xmlns="http://www.w3.org/2000/svg">
+<rect height="174" fill="#555" width="720"></rect>
 <text fill="#7f7" font-family="Courier New" font-size="12" xml:space="preserve">
-<tspan x="10" y="26">└─┬ memcached@2.2.2 </tspan>
-<tspan x="10" y="42">  ├─┬ hashring@3.2.0 </tspan>
-<tspan x="10" y="58">  │ ├── connection-parse@0.0.7 </tspan>
-<tspan x="10" y="74">  │ └── simple-lru-cache@0.0.2 </tspan>
-<tspan x="10" y="90">  └─┬ jackpot@0.0.6 </tspan>
-<tspan x="10" y="106">    └── retry@0.6.0</tspan>
+<tspan x="10" y="26">6 megabytes installed</tspan>
+<tspan x="10" y="42"></tspan>
+<tspan x="10" y="58">node_modules</tspan>
+<tspan x="10" y="74">└─┬ memcached@2.2.2 </tspan>
+<tspan x="10" y="90">  ├─┬ hashring@3.2.0 </tspan>
+<tspan x="10" y="106">  │ ├── connection-parse@0.0.7 </tspan>
+<tspan x="10" y="122">  │ └── simple-lru-cache@0.0.2 </tspan>
+<tspan x="10" y="138">  └─┬ jackpot@0.0.6 </tspan>
+<tspan x="10" y="154">    └── retry@0.6.0</tspan>
 </text>
 </svg>

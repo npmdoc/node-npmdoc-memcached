@@ -63,6 +63,24 @@
 
         <li>
 
+            <a class="apidocElementLiA" href="#apidoc.element.memcached.memcached">
+            function <span class="apidocSignatureSpan"></span>memcached
+            <span class="apidocSignatureSpan">(args, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.memcached.toString">
+            function <span class="apidocSignatureSpan">memcached.</span>toString
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">memcached.</span>config</span>
 
         </li>
@@ -97,6 +115,19 @@
             <a class="apidocElementLiA" href="#apidoc.element.memcached.connection.IssueLog">
             function <span class="apidocSignatureSpan">memcached.connection.</span>IssueLog
             <span class="apidocSignatureSpan">(args)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.memcached.toString">module memcached.toString</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.memcached.toString.toString">
+            function <span class="apidocSignatureSpan">memcached.</span>toString
+            <span class="apidocSignatureSpan">()</span>
             </a>
 
         </li>
@@ -185,6 +216,88 @@
 <h1><a href="#apidoc.module.memcached" id="apidoc.module.memcached">module memcached</a></h1>
 
 
+    <h2>
+        <a href="#apidoc.element.memcached.memcached" id="apidoc.element.memcached.memcached">
+        function <span class="apidocSignatureSpan"></span>memcached
+        <span class="apidocSignatureSpan">(args, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Client(args, options) {
+  var servers = []
+    , weights = {}
+    , regular = &#x27;localhost:11211&#x27;
+    , key;
+
+  // Parse down the connection arguments
+  switch (Object.prototype.toString.call(args)) {
+    case &#x27;[object Object]&#x27;:
+      weights = args;
+      servers = Object.keys(args);
+      break;
+
+    case &#x27;[object Array]&#x27;:
+      servers = args.length ? args : [regular];
+      break;
+
+    default:
+      servers.push(args || regular);
+      break;
+  }
+
+  if (!servers.length) {
+    throw new Error(&#x27;No servers where supplied in the arguments&#x27;);
+  }
+
+  // merge with global and user config
+  Utils.merge(this, Client.config);
+  Utils.merge(this, options);
+
+  this.servers = servers;
+  var compatibility = this.compatibility || this.compatiblity;
+  this.HashRing = new HashRing(args, this.algorithm, {
+    &#x27;compatibility&#x27;: compatibility,
+    &#x27;default port&#x27;: compatibility === &#x27;ketama&#x27; ? 11211 : null
+  });
+  this.connections = {};
+  this.issues = [];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.memcached.toString" id="apidoc.element.memcached.toString">
+        function <span class="apidocSignatureSpan">memcached.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">toString = function () {
+    return text;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+function ping (host, callback) {
+var isWin = process.platform.indexOf(&#x27;win&#x27;) === 0; // win32 or win64
+var arg = isWin ? &#x27;-n&#x27; : &#x27;-c&#x27;;
+var pong = spawn(&#x27;ping&#x27;, [arg, &#x27;3&#x27;, host]); // only ping 3 times
+
+pong.stdout.on(&#x27;data&#x27;, function stdoutdata (data) {
+  callback(false, data.<span class="apidocCodeKeywordSpan">toString</span>().split(&#x27;\n&#x27;)[0].substr(14));
+  pong.kill();
+});
+
+pong.stderr.on(&#x27;data&#x27;, function stderrdata (data) {
+  callback(new Error(data.toString().split(&#x27;\n&#x27;)[0].substr(14)), false);
+  pong.kill();
+});
+...</pre></li>
+    </ul>
+
+
+
 
 
 
@@ -246,6 +359,40 @@
   EventEmitter.call(this);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.memcached.toString" id="apidoc.module.memcached.toString">module memcached.toString</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.memcached.toString.toString" id="apidoc.element.memcached.toString.toString">
+        function <span class="apidocSignatureSpan">memcached.</span>toString
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function toString() { [native code] }</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+function ping (host, callback) {
+var isWin = process.platform.indexOf(&#x27;win&#x27;) === 0; // win32 or win64
+var arg = isWin ? &#x27;-n&#x27; : &#x27;-c&#x27;;
+var pong = spawn(&#x27;ping&#x27;, [arg, &#x27;3&#x27;, host]); // only ping 3 times
+
+pong.stdout.on(&#x27;data&#x27;, function stdoutdata (data) {
+  callback(false, data.<span class="apidocCodeKeywordSpan">toString</span>().split(&#x27;\n&#x27;)[0].substr(14));
+  pong.kill();
+});
+
+pong.stderr.on(&#x27;data&#x27;, function stderrdata (data) {
+  callback(new Error(data.toString().split(&#x27;\n&#x27;)[0].substr(14)), false);
+  pong.kill();
+});
+...</pre></li>
     </ul>
 
 
