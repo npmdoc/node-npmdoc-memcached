@@ -1,4 +1,7 @@
-# api documentation for  [memcached (v2.2.2)](https://github.com/3rd-Eden/node-memcached#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-memcached.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-memcached) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-memcached.svg)](https://travis-ci.org/npmdoc/node-npmdoc-memcached)
+# npmdoc-memcached
+
+#### basic api documentation for  [memcached (v2.2.2)](https://github.com/3rd-Eden/node-memcached#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-memcached.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-memcached) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-memcached.svg)](https://travis-ci.org/npmdoc/node-npmdoc-memcached)
+
 #### A fully featured Memcached API client, supporting both single and clustered Memcached servers through consistent hashing and failover/failure. Memcached is rewrite of nMemcached, which will be deprecated in the near future.
 
 [![NPM](https://nodei.co/npm/memcached.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/memcached)
@@ -76,7 +79,8 @@
     "scripts": {
         "test": "mocha $(find test -name '*.test.js')"
     },
-    "version": "2.2.2"
+    "version": "2.2.2",
+    "bin": {}
 }
 ```
 
